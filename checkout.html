@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar-custom {
+            background-color: #343a40;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #fff;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #ddd;
+        }
+
+        .checkout-section {
+            padding: 50px 0;
+        }
+
+        .checkout-form input,
+        .checkout-form select {
+            margin-bottom: 15px;
+        }
+
+        .checkout-summary {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .checkout-summary h4 {
+            margin-bottom: 20px;
+        }
+
+        .checkout-summary .total-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .checkout-btn {
+            background-color: #28a745;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+
+        .order-summary-table th,
+        .order-summary-table td {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">My Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Account</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Page -->
+    <div class="container checkout-section">
+        <h2>Checkout</h2>
+        <div class="row">
+            <!-- Checkout Form -->
+            <div class="col-md-6">
+                <form class="checkout-form">
+                    <h4>Billing Information</h4>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Shipping Address</label>
+                        <input type="text" class="form-control" id="address" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <select class="form-select" id="country" required>
+                            <option selected disabled>Choose your country</option>
+                            <option value="USA">United States</option>
+                            <option value="Canada">Canada</option>
+                            <option value="UK">United Kingdom</option>
+                            <!-- Add more countries as needed -->
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="payment" class="form-label">Payment Method</label>
+                        <select class="form-select" id="payment" required>
+                            <option selected disabled>Choose payment method</option>
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-md-6 checkout-summary">
+                <h4>Order Summary</h4>
+                <table class="table table-bordered order-summary-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Wireless Headphones</td>
+                            <td>1</td>
+                            <td>$29.99</td>
+                        </tr>
+                        <tr>
+                            <td>Smart Watch</td>
+                            <td>2</td>
+                            <td>$39.98</td>
+                        </tr>
+                        <tr>
+                            <td>Bluetooth Speaker</td>
+                            <td>1</td>
+                            <td>$39.99</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="total-price">
+                    Total: $109.96
+                </div>
+
+                <button class="checkout-btn">Complete Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
